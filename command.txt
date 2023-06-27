@@ -1,0 +1,9 @@
+"C:\Program Files\Java\jdk-17.0.2\bin\javac.exe" -d classes/application/ application/src/com/example/app/Hello.java application/src/com/example/app/Main.java application/src/module-info.java
+
+"C:\Program Files\Java\jdk-17.0.2\bin\jar.exe" cvf modules/application.jar -C classes/application .
+
+"C:\Program Files\Java\jdk-17.0.2\bin\javac.exe" --module-path modules -d classes/library/ library/src/module-info.java library/src/com/example/lib/HelloImpl.java
+
+"C:\Program Files\Java\jdk-17.0.2\bin\jar.exe" cvf modules/library.jar -C classes/library .
+
+"C:\Program Files\Java\jdk-17.0.2\bin\java.exe" --module-path modules --module application/com.example.app.Main
